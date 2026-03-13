@@ -190,7 +190,8 @@ img {
   justify-content: center;
   width: 36px;
   height: 36px;
-  color: var(--white);
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .logo-icon svg {
