@@ -22,7 +22,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // Scroll animations
 const fadeElements = document.querySelectorAll(
-  '.about-card, .step, .feature-card, .team-card, .contact-item, .contact-form, .cta-content'
+  '.about-card, .step, .feature-card, .team-card, .contact-item, .cta-content'
 );
 
 fadeElements.forEach(el => el.classList.add('fade-in'));
@@ -39,32 +39,6 @@ const observer = new IntersectionObserver(
 );
 
 fadeElements.forEach(el => observer.observe(el));
-
-// Contact form handling
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(contactForm);
-  const data = Object.fromEntries(formData.entries());
-
-  // Show success message
-  const btn = contactForm.querySelector('button[type="submit"]');
-  const originalText = btn.textContent;
-  btn.textContent = 'Message Sent!';
-  btn.style.background = '#059669';
-  btn.style.borderColor = '#059669';
-  btn.disabled = true;
-
-  setTimeout(() => {
-    btn.textContent = originalText;
-    btn.style.background = '';
-    btn.style.borderColor = '';
-    btn.disabled = false;
-    contactForm.reset();
-  }, 3000);
-});
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
