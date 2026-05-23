@@ -1,9 +1,11 @@
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+if (navbar && !navbar.classList.contains('scrolled-always')) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+}
 
 // Mobile menu toggle
 const mobileToggle = document.getElementById('mobile-toggle');
@@ -22,7 +24,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // Scroll animations
 const fadeElements = document.querySelectorAll(
-  '.about-card, .step, .feature-card, .team-card, .contact-item, .cta-content'
+  '.about-card, .step, .feature-card, .team-member, .pipeline-step, .contact-item, .cta-content, .tech-detail-card, .foundation-item'
 );
 
 fadeElements.forEach(el => el.classList.add('fade-in'));
@@ -40,7 +42,7 @@ const observer = new IntersectionObserver(
 
 fadeElements.forEach(el => observer.observe(el));
 
-// Smooth scroll for anchor links
+// Smooth scroll for same-page anchor links only
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
